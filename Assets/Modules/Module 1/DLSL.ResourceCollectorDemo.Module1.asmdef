@@ -1,6 +1,6 @@
 {
     "name": "DLSL.ResourceCollectorDemo.Module1",
-    "rootNamespace": "DLSL.ResourceCollectorDemo.Module1",
+    "rootNamespace": "DLSL.ResourceCollectorDemo",
     "references": [
         "GUID:c160c64610afbc948a81da06a4464570"
     ],

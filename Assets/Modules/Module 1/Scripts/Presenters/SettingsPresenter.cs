@@ -1,8 +1,8 @@
-using System;
+using DLSL.ResourceCollectorDemo.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace DLSL.ResourceCollectorDemo.Module1.Presenters
+namespace DLSL.ResourceCollectorDemo.Presenters
 {
     public class SettingsPresenter : MonoBehaviour
     {

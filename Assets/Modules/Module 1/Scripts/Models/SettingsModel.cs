@@ -1,6 +1,7 @@
+using DLSL.ResourceCollectorDemo.References;
 using UnityEngine;
 
-namespace DLSL.ResourceCollectorDemo.Module1
+namespace DLSL.ResourceCollectorDemo.Models
 {
     [CreateAssetMenu(fileName = "SettingsModel", menuName = "MVP/Models/SettingsModel")]
     public class SettingsModel : ScriptableObject

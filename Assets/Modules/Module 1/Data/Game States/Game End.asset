@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4426d0374fbec784c827d3ad8d51fbc1, type: 3}
-  m_Name: In-Game
+  m_Name: Game End
   m_EditorClassIdentifier: 

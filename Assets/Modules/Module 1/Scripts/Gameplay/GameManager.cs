@@ -1,31 +1,42 @@
-using System;
-using DLSL.ResourceCollectorDemo.References;
+using DLSL.ResourceCollectorDemo.Core.Attributes;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace DLSL.ResourceCollectorDemo.Gameplay
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] GameStateSetReference _gameStateReference;
-        [SerializeField] GameState _startState;
-        [field: SerializeField] public GameState CurrentState { get; private set; }
+        [SerializeField] private GameState _menuState, _pauseState, _gameActiveState;
+        [SerializeField, ReadOnly] private GameState _currentState;
 
-        private void Awake()
+        public GameState CurrentState
         {
-            _gameStateReference.OnValueSet += OnGameStateSet;
-        }
-        private void OnDestroy()
-        {
-            _gameStateReference.OnValueSet -= OnGameStateSet;
+            get => _currentState;
+            private set
+            {
+                _currentState = value;
+                _currentState.Raise();
+            }
         }
         private void Start()
         {
-            _gameStateReference.SetValue(_startState);
+            ChangeState(_menuState);
         }
-        private void OnGameStateSet(GameState state)
+        private void Update()
         {
-            CurrentState = state;
+            if (Input.GetKeyDown(KeyCode.Escape) && _currentState != _menuState)
+            {
+                ChangeState(_currentState == _pauseState ? _gameActiveState : _pauseState);
+            }
+        }
+        public void LoadAssets()
+        {
+            print("Loading Assets...");
+            print("Load Complete!");
+            ChangeState(_gameActiveState);
+        }
+        public void ChangeState(GameState newState)
+        {
+            CurrentState = newState;
         }
     }
 }

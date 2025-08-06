@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace DLSL.ResourceCollectorDemo
+namespace DLSL.ResourceCollectorDemo.Settings
 {
     public class SettingsController : MonoBehaviour
     {
@@ -13,7 +13,6 @@ namespace DLSL.ResourceCollectorDemo
         public void ChangeVolume(float value)
         {
             _settings.Volume = value;
-            _settings.OnVolumeChanged?.Invoke(_settings.Volume);
         }
 
         private void Start()

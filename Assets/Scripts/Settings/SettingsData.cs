@@ -1,12 +1,21 @@
 using System;
 using UnityEngine;
 
-namespace DLSL.ResourceCollectorDemo
+namespace DLSL.ResourceCollectorDemo.Settings
 {
     [CreateAssetMenu(fileName = "SettingsData", menuName = "Scriptable Objects/SettingsData")]
     public class SettingsData : ScriptableObject
     {
-        public float Volume;
-        public Action<float> OnVolumeChanged;
+        [SerializeField] private float _volume;
+        public float Volume
+        {
+            get => _volume;
+            set
+            {
+                _volume = value;
+                OnVolumeChanged?.Invoke(_volume);
+            }
+        }
+        public event Action<float> OnVolumeChanged;
     }
 }

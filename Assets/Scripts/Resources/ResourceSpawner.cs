@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace DLSL.ResourceCollectorDemo.Resources
 {
@@ -7,7 +8,7 @@ namespace DLSL.ResourceCollectorDemo.Resources
         [field: SerializeField] public Resource Resource { get; private set; }
         public virtual void SpawnResources(int count)
         {
-            print($"Spawned {count} resources");
+            print($"Spawned {count} resources.");
         }
     }
 }

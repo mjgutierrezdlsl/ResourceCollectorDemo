@@ -17,11 +17,8 @@ namespace DLSL.ResourceCollectorDemo.Characters
             private set
             {
                 _activeCharacterIndex = value;
-                OnCharacterChanged?.Invoke(_characters[_activeCharacterIndex]);
             }
         }
-
-        public event Action<CharacterHandler> OnCharacterChanged;
 
         private void Reset()
         {
@@ -31,6 +28,14 @@ namespace DLSL.ResourceCollectorDemo.Characters
         private void Awake()
         {
             _inputActions = new();
+        }
+
+        private void Start()
+        {
+            for (int i = 0; i <= _characters.Length - 1; i++)
+            {
+                _characters[i].gameObject.SetActive(i == _activeCharacterIndex);
+            }
         }
 
         private void OnEnable()
@@ -60,6 +65,7 @@ namespace DLSL.ResourceCollectorDemo.Characters
 
         public void ToggleCharacters()
         {
+            var currentCharacter = ActiveCharacter;
             if (ActiveCharacterIndex < _characters.Length - 1)
             {
                 ActiveCharacterIndex++;
@@ -69,12 +75,12 @@ namespace DLSL.ResourceCollectorDemo.Characters
                 ActiveCharacterIndex = 0;
             }
 
-            for (int i = 0; i < _characters.Length - 1; i++)
+            for (int i = 0; i <= _characters.Length - 1; i++)
             {
                 _characters[i].gameObject.SetActive(i == ActiveCharacterIndex);
             }
 
-            print($"Active Character is: {_characters[ActiveCharacterIndex]}");
+            ActiveCharacter.transform.position = currentCharacter.transform.position;
         }
 
         private IEnumerator PlayAttackAnimation()

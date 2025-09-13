@@ -10010,13 +10010,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
-  _waypoints:
+  _distanceThreshold: 0.3
+  <Waypoints>k__BackingField:
   - {fileID: 1037577858}
   - {fileID: 1009493744}
   - {fileID: 544497937}
   - {fileID: 519946372}
-  _idleWaitTime: 0
-  _distanceThreshold: 0.3
 --- !u!1 &2009876416
 GameObject:
   m_ObjectHideFlags: 0

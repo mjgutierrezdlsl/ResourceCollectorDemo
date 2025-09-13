@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
 {
-    public abstract class StateMachine : MonoBehaviour
+    public abstract class StateMachine<T> : MonoBehaviour where T : StateMachine<T>
     {
-        protected State CurrentState { get; private set; }
+        protected State<T> CurrentState { get; private set; }
         protected virtual void Update()
         {
             CurrentState.Update();
@@ -13,7 +13,7 @@ namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
         {
             CurrentState.PhysicsUpdate();
         }
-        public void ChangeState(State newState)
+        public void ChangeState(State<T> newState)
         {
             if (CurrentState != null)
             {

@@ -1,6 +1,6 @@
 namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
 {
-    public class WalkState : State
+    public class WalkState : State<GoblinStateMachine>
     {
         GoblinStateMachine _context;
         public WalkState(string name) : base(name)
@@ -9,8 +9,7 @@ namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
         protected override void OnEnterState()
         {
             base.OnEnterState();
-            _context = (GoblinStateMachine)Context;
-            _context.Animator.SetBool("isMoving", true);
+            Context.Animator.SetBool("isMoving", true);
         }
     }
 

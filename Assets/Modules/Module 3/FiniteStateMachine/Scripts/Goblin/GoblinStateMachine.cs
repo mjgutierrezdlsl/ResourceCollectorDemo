@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
 {
-    public class GoblinStateMachine : StateMachine
+    public class GoblinStateMachine : StateMachine<GoblinStateMachine>
     {
         [Header("Properties")]
         public Animator Animator { get; private set; }

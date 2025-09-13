@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
 {
-    public abstract class State
+    public abstract class State<T> where T : StateMachine<T>
     {
         private string _name;
-        protected StateMachine Context;
+        protected T Context;
         public State(string name)
         {
             _name = name;
         }
-        public void Enter(StateMachine context)
+        public void Enter(StateMachine<T> context)
         {
-            Context = context;
+            Context = context as T;
             OnEnterState();
         }
 

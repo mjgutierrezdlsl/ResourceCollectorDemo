@@ -4,9 +4,8 @@ using UnityEngine;
 namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
 {
     [Serializable]
-    public class IdleState : State
+    public class IdleState : State<GoblinStateMachine>
     {
-        private GoblinStateMachine _context;
         [SerializeField] private float _waitTime = 1f;
         private float _elapsedTime;
         public IdleState(string name) : base(name)
@@ -15,8 +14,7 @@ namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
         protected override void OnEnterState()
         {
             base.OnEnterState();
-            _context = (GoblinStateMachine)Context;
-            _context.Animator.SetBool("isMoving", false);
+            Context.Animator.SetBool("isMoving", false);
         }
         protected override void OnUpdateState()
         {
@@ -27,7 +25,7 @@ namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
             }
             else
             {
-                _context.ChangeState(_context.Walk);
+                Context.ChangeState(Context.Walk);
             }
         }
         protected override void OnExitState()

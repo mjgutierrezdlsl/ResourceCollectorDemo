@@ -10010,7 +10010,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Idle>k__BackingField:
-    _waitTime: 5
+    _waitTime: 1
+  <Walk>k__BackingField:
+    _moveSpeed: 2
+    _distanceThreshold: 0.3
+    _waypoints:
+    - {fileID: 1037577858}
+    - {fileID: 1009493744}
+    - {fileID: 544497937}
+    - {fileID: 519946372}
 --- !u!1 &2009876416
 GameObject:
   m_ObjectHideFlags: 0

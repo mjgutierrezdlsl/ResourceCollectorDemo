@@ -4,7 +4,7 @@ using UnityEngine;
 namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
 {
     [Serializable]
-    public class IdleState : State<GoblinStateMachine>
+    public class IdleState : CalmState
     {
         [SerializeField] private float _waitTime = 1f;
         private float _elapsedTime;

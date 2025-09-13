@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
 {
-    [Serializable]
-    public class WalkState : CalmState
+    [System.Serializable]
+    public class EnragedWalkState : EnragedState
     {
         [SerializeField] private float _moveSpeed = 2f;
         [SerializeField] private float _distanceThreshold = 0.3f;
@@ -13,7 +12,7 @@ namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
         private Vector3 _moveDirection;
         private int _waypointIndex;
 
-        public WalkState(string name) : base(name)
+        public EnragedWalkState(string name) : base(name)
         {
         }
 
@@ -42,7 +41,8 @@ namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
 
             if (Vector3.Distance(Context.CurrentPosition, _targetPosition) < _distanceThreshold)
             {
-                Context.ChangeState(Context.Idle);
+                _waypointIndex = Random.Range(0, _waypoints.Length);
+                _targetPosition = _waypoints[_waypointIndex].position;
             }
         }
 
@@ -51,18 +51,6 @@ namespace DLSL.ResourceCollectorDemo.Module3.FiniteStateMachine
             base.OnPhysicsUpdateState();
 
             Context.Rigidbody2D.MovePosition(Context.CurrentPosition + _moveDirection * _moveSpeed * Time.fixedDeltaTime);
-        }
-
-        protected override void OnExitState()
-        {
-            base.OnExitState();
-
-            _waypointIndex++;
-
-            if (_waypointIndex >= _waypoints.Length)
-            {
-                _waypointIndex = 0;
-            }
         }
     }
 

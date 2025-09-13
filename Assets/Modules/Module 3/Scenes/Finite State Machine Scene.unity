@@ -10009,10 +10009,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344ba4c0f89e24989a8cce837e59a53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 5
   <Idle>k__BackingField:
     _waitTime: 1
   <Walk>k__BackingField:
     _moveSpeed: 2
+    _distanceThreshold: 0.3
+    _waypoints:
+    - {fileID: 1037577858}
+    - {fileID: 1009493744}
+    - {fileID: 544497937}
+    - {fileID: 519946372}
+  <EnragedWalk>k__BackingField:
+    _moveSpeed: 5
     _distanceThreshold: 0.3
     _waypoints:
     - {fileID: 1037577858}

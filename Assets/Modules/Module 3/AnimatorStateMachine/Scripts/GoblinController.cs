@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DLSL.ResourceCollector.Module3
+namespace DLSL.ResourceCollectorDemo.Module3.AnimatorStateMachine
 {
     public class GoblinController : MonoBehaviour
     {

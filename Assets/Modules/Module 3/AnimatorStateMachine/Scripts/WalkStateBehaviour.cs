@@ -1,7 +1,6 @@
-using DLSL.ResourceCollector.Module3;
 using UnityEngine;
 
-namespace DLSL.ResourceCollectorDemo
+namespace DLSL.ResourceCollectorDemo.Module3.AnimatorStateMachine
 {
     public class WalkStateBehaviour : StateMachineBehaviour
     {

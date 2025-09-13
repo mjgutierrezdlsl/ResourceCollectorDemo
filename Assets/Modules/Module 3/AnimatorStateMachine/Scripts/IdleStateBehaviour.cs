@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DLSL.ResourceCollectorDemo
+namespace DLSL.ResourceCollectorDemo.Module3.AnimatorStateMachine
 {
     public class IdleStateBehaviour : StateMachineBehaviour
     {

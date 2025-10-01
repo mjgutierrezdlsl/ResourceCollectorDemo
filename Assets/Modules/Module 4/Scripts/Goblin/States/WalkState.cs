@@ -10,8 +10,9 @@ namespace DLSL.ResourceCollectorDemo.Module4.FiniteStateMachine
         [SerializeField] private float _distanceThreshold = 0.3f;
         [SerializeField] private WaypointContainer _waypoints;
 
-        private Vector3 _targetPosition;
-        private Vector3 _moveDirection;
+        protected Vector3 _targetPosition;
+        protected Vector3 _moveDirection;
+        public Vector3 MoveDirection => _moveDirection;
 
         public WalkState(string name) : base(name)
         {
